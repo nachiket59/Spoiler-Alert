@@ -15,4 +15,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.msg === "send words") {
     sendResponse({ words: words });
   }
+  if (request.msg === "notify") {
+    chrome.notifications.create("replace-update", {
+      type: "basic",
+      iconUrl: "/icon16.png",
+      title: request.count + " Words Masked",
+      message: "spoiler words are replaced with ***... !",
+    });
+    console.log("notofication");
+  }
 });

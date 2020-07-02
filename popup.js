@@ -37,12 +37,24 @@ addBtn.onclick = function () {
           { words: { [addword.value]: addword.value } },
           function () {
             console.log("Value is set to " + addword.value);
+            chrome.notifications.create("addword", {
+              type: "basic",
+              iconUrl: "icon16.png",
+              title: "Word added",
+              message: removeword.value + "Word added successfully!",
+            });
           }
         );
       } else {
         result.words[addword.value] = addword.value;
         chrome.storage.sync.set({ words: result.words }, function () {
           console.log("Value is set to " + addword.value);
+          chrome.notifications.create("addword", {
+            type: "basic",
+            iconUrl: "icon16.png",
+            title: "Word added",
+            message: removeword.value + "Word added successfully!",
+          });
         });
       }
     });
@@ -55,6 +67,12 @@ removeBtn.onclick = function () {
       delete result.words[removeword.value];
       chrome.storage.sync.set({ words: result.words }, function () {
         console.log(result.words);
+        chrome.notifications.create("removeword", {
+          type: "basic",
+          iconUrl: "icon16.png",
+          title: "Word Removed",
+          message: removeword.value + " removed successfully!",
+        });
       });
     }
   });
@@ -63,4 +81,10 @@ removeBtn.onclick = function () {
 var removeall = document.getElementById("removeall");
 removeall.onclick = function () {
   chrome.storage.sync.clear();
+  chrome.notifications.create("removeall", {
+    type: "basic",
+    iconUrl: "icon16.png",
+    title: "Words Removed",
+    message: removeword.value + "All words removed successfully!",
+  });
 };

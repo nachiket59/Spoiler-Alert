@@ -1,4 +1,5 @@
-var words = {};
+var words = {},
+  ct = 0;
 var body = document.getElementsByTagName("body");
 chrome.runtime.sendMessage({ msg: "send words" }, function (response) {
   words = response.words;
@@ -9,14 +10,22 @@ chrome.runtime.sendMessage({ msg: "send words" }, function (response) {
     for (let i = 0; i < words[key].length; i++) {
       replace += "*";
     }
-    treeSearch(body[0], words[key], replace);
+    if (body[0].textContent.search(words[key]) !== -1)
+      treeSearch(body[0], words[key], replace);
   }
+
+  chrome.runtime.sendMessage({ msg: "notify", count: ct });
 });
 function treeSearch(node, word, replace) {
   var regEx = new RegExp(word, "ig");
   if (node.childNodes.length === 0) {
     if (node.nodeType == Element.TEXT_NODE) {
+      let prev = node.textContent;
       node.textContent = node.textContent.replace(regEx, replace);
+      if (prev !== node.textContent) {
+        ct++;
+        //console.log(node.textContent);
+      }
     }
     return;
   } else {
