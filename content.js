@@ -1,3 +1,14 @@
+document.addEventListener("selectionchange", function () {
+  var selection = window.getSelection().toString().trim();
+  if (selection.match(/**/)) {
+    //console.log("match");
+    chrome.runtime.sendMessage({
+      msg: "updateContextMenu",
+      selection: selection,
+    });
+  }
+});
+
 var words = {},
   ct = 0;
 var body = document.getElementsByTagName("body");

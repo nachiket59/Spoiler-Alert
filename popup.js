@@ -41,7 +41,7 @@ addBtn.onclick = function () {
               type: "basic",
               iconUrl: "icon16.png",
               title: "Word added",
-              message: removeword.value + "Word added successfully!",
+              message: addword.value + " word added successfully!",
             });
           }
         );
@@ -53,7 +53,7 @@ addBtn.onclick = function () {
             type: "basic",
             iconUrl: "icon16.png",
             title: "Word added",
-            message: removeword.value + "Word added successfully!",
+            message: addword.value + " word added successfully!",
           });
         });
       }
@@ -85,6 +85,6 @@ removeall.onclick = function () {
     type: "basic",
     iconUrl: "icon16.png",
     title: "Words Removed",
-    message: removeword.value + "All words removed successfully!",
+    message: "All words removed successfully!",
   });
 };
