@@ -1,6 +1,5 @@
 # Spoiler-Alert
-
-##### Chrome extension which notifies you the presence of spoiler words in web page and mask them.
+##### Chrome extension which notifies you the presence of spoiler words in web page and masks them.
 
 ### Features
 ##### 1. Adding and removing spoiler words.
