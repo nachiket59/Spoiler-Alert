@@ -13,10 +13,17 @@ he will be shown spoiler words of same length in context menu option, so he can 
 
 User must refresh the page to be able to reflect the changes on webpage, i.e. to hide newly added words and unhide newly removed words.
 
+![](screenshots/Capture1.jpg)
+![](screenshots/Capture4.jpeg)
+![](screenshots/Capture5.jpeg)
+
 ##### 2. Whitelist a website.
 User can whitelist a website meaning, all webpages from whitelisted website will be exempted from hiding spoiler words.
 
 To add and remove a website from whitelist user can use extension popup in similar way as mentioned in previous feature.
+
+![](screenshots/Capture2.jpg)
+![](screenshots/Capture3.jpg)
 
 ##### 3. Mute and unmute notifications.
 User is notified after masking spoiler words showing how many words have been masked, after adding and removing words from spoiler list and websites from 
